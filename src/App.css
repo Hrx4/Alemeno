@@ -1,0 +1,10 @@
+.expand{
+  display: block !important;
+  height: auto !important;
+  transition: .5s all ease-in-out;
+}
+.collasp{
+  display: hidden !important;
+  height: 0 !important;
+  transition: .5s all ease-in-out;
+}
