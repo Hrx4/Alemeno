@@ -1,3 +1,7 @@
+## How to run the code
+run the command - "npm run dev" in your terminal
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
