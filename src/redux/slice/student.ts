@@ -37,7 +37,6 @@ const studentSlice = createSlice({
            state.data =  courses.filter((item:any) =>  
                 item.students.some((course :any) => course.email === email)
               );
-
               state.currentUser=email
               localStorage.setItem('currentUser' , email)
               localStorage.setItem(email , JSON.stringify(state.data))

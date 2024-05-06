@@ -1,6 +1,9 @@
 ## How to run the code
 run the command - "npm install" and then "npm run dev" in your terminal
 
+The registered users emails are - alice@example.com , bob@example.com , charlie@example.com for testing purpose.
+Also as i am not using any seperate database for students so the progress of students will romove after reload.
+
 
 # React + TypeScript + Vite
 

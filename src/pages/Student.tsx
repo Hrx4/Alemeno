@@ -8,15 +8,13 @@ import {
 } from "../redux/slice/student";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { useNavigate } from "react-router-dom";
 
 const Student = () => {
   const dispatch = useDispatch();
   const state: any = useSelector((state) => state);
-  console.log("====================================");
-  console.log(state);
-  console.log("====================================");
   const [currentUser, setCurrentUser] = useState("");
-
+  const navigate = useNavigate()
   const handleSubmit = (e: any) => {
     e.preventDefault();
     // localStorage.setItem("loginStudent", currentUser);
@@ -24,6 +22,8 @@ const Student = () => {
   };
 
   useEffect(() => {
+    if(state.course.data===null) navigate('/')
+      else 
     if (state.student.data === null) {
       dispatch(
         fetchStudent({

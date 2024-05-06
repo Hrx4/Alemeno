@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Course = () => {
   const [collasp, setCollasp] = useState("h-0 hidden");
@@ -10,11 +11,14 @@ const Course = () => {
     if (collasp === "expand") setCollasp("h-0 hidden");
     else setCollasp("expand");
   };
+  const navigate = useNavigate()
 
   const state: any = useSelector((state) => state);
-  console.log('====================================');
-  console.log('state :' ,  state);
-  console.log('====================================');
+
+  useEffect(() => {
+    if(state.singleCourse.data===null) navigate('/')
+
+  })
 
   return (
     <>

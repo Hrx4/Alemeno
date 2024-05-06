@@ -19,9 +19,6 @@ const singleCourseSlice = createSlice({
     },
     reducers: {
         currentCourse : (state , action)=>{
-            console.log('====================================');
-            console.log("payload : " , action.payload);
-            console.log('====================================');
             state.data = action.payload
         }
     }
