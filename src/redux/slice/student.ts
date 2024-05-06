@@ -6,7 +6,8 @@ const studentSlice = createSlice({
     initialState: {
         isLoading: false,
         data: null,
-        isError: false
+        isError: false,
+        currentUser : null
     },
     reducers: {
         handleCheck : (state :any , action)=>{
@@ -17,6 +18,9 @@ const studentSlice = createSlice({
                 if(syllabus.complete) total+=1;
             })
             state.data[course].proggress = (total*100) / state.data[course].syllabus.length
+            const email = localStorage.getItem('currentUser')
+            if(email)
+            localStorage.setItem( email, JSON.stringify(state.data))
             
         },
         handleUnCheck : (state :any , action)=>{
@@ -33,11 +37,19 @@ const studentSlice = createSlice({
            state.data =  courses.filter((item:any) =>  
                 item.students.some((course :any) => course.email === email)
               );
+
+              state.currentUser=email
+              localStorage.setItem('currentUser' , email)
+              localStorage.setItem(email , JSON.stringify(state.data))
+        },
+        studentLogOut : (state )=>{
+              state.currentUser=null
+              localStorage.removeItem('currentUser')
         }
     }
 })
 
-export const {handleCheck , fetchStudent , handleUnCheck} = studentSlice.actions
+export const {handleCheck , fetchStudent , handleUnCheck , studentLogOut} = studentSlice.actions
 
 
 

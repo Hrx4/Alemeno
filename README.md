@@ -1,5 +1,5 @@
 ## How to run the code
-run the command - "npm run dev" in your terminal
+run the command - "npm install" and then "npm run dev" in your terminal
 
 
 # React + TypeScript + Vite

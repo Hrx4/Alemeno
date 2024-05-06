@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { studentLogOut } from "../redux/slice/student";
 
 const Navbar = () => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
-  const user = localStorage.getItem("loginStudent");
+  const state: any = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -25,13 +28,15 @@ const Navbar = () => {
           </div>
         </div>
         <div className=" text-white flex flex-col relative">
-          {user ? (
+          {state.student.currentUser ? (
             <>
-              <button onClick={() => setOpen(!open)}>{user}</button>
+              <button onClick={() => setOpen(!open)}>{state.student.currentUser}</button>
               <button
                 hidden={open}
                 className={`p-1 w-20 bg-red-400 rounded-lg `}
-                onClick={() => localStorage.removeItem("loginStudent")}
+                onClick={() => {
+                dispatch(studentLogOut())  
+                }}
               >
                 Log Out
               </button>

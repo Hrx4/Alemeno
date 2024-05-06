@@ -24,9 +24,6 @@ const courseSlice = createSlice({
         });
         builder.addCase(fetchCourses.fulfilled, (state :any, action) => {
             state.data = action.payload;
-            // localStorage.setItem({
-
-            // })
             state.isLoading = false;
         });
         builder.addCase(fetchCourses.rejected, (state, action) => {

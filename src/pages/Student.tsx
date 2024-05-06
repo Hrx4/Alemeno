@@ -19,7 +19,7 @@ const Student = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    localStorage.setItem("loginStudent", currentUser);
+    // localStorage.setItem("loginStudent", currentUser);
     dispatch(fetchStudent({ email: currentUser, courses: state.course.data }));
   };
 
@@ -44,7 +44,7 @@ const Student = () => {
 
   return (
     <>
-      {localStorage.getItem("loginStudent") ? (
+      {state.student.currentUser ? (
         <div className="  h-3/4  m-10 overflow-y-scroll">
           {state.student.data?.map((item: any, index: Number) => (
             <div
